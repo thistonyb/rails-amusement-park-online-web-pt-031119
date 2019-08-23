@@ -1,7 +1,13 @@
+<p id="notice"><%= notice %></p>
+
+<% if flash[:message] %>
+<div class="center alert">
+  <p><%= flash[:message] %></p>
+</div>
+<% end %>
+
+
 <div class="center">
-  <div class="pic">
-    <img src="http://8900-presscdn-0-84.pagely.netdna-cdn.com/wp-content/themes/beautycon/assets/img/avatar-grey.png" height="250">
-  </div>
 
   <div class="info">
     <%= "ADMIN" if @user.admin %><br />
