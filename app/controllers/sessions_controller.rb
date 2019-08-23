@@ -1,16 +1,16 @@
-class SessionsController < ApplicationController
+class SessionController < ApplicationController
+  skip_before_action :user_is_authenticated, only: [:new,:create]
 
-  def sign_in
+  def new
     @user = User.new
   end
 
   def create
-    @user = User.find_by(name: params[:user][:name])
-    if @user && @user.authenticate(params[:user][:password])
+    if @user = User.find_by(name:params[:user][:name])
       session[:user_id] = @user.id
       redirect_to user_path(@user)
     else
-      render 'sign_in'
+      render 'new'
     end
   end
 
