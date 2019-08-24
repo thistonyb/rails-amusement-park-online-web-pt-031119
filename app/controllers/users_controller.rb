@@ -17,7 +17,12 @@ class UsersController < ApplicationController
   end
 
   def show
-    @user = User.find_by(id: params[:id])
+    if User.find_by(id: params[:id]) && session[:user_id]
+      @user = User.find_by(id: params[:id])
+      render :show
+    else
+      redirect_to "/"
+    end
   end
 
   private
