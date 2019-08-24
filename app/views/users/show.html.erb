@@ -1,22 +1,12 @@
-<p id="notice"><%= notice %></p>
-
-<% if flash[:message] %>
-<div class="center alert">
-  <p><%= flash[:message] %></p>
-</div>
+<% if @user.admin %>
+    <h3>ADMIN</h3>
 <% end %>
 
+<h3><%= @user.name %></h3>
+<h3>Tickets: <%= @user.tickets %></h3>
+<h3>Mood: <%= @user.mood %></h3>
+<h3>Height: <%= @user.height %></h3>
 
-<div class="center">
 
-  <div class="info">
-    <%= "ADMIN" if @user.admin %><br />
-    <p><strong>Name:</strong> <%= @user.name %></p>
-    <p><strong>Tickets: </strong><%= @user.tickets %></p>
-    <p><strong>Mood: </strong><%= @user.mood %></p>
-    <p><strong>Height: </strong><%= @user.height %> inches</p>
-    <p><%= link_to 'Edit', edit_user_path(@user) %></p>
-    <p><%= link_to 'See attractions', attractions_path %></p>
-    <p><%= link_to 'Log Out', logout_path %></p>
-  </div>
-</div>
+<%= link_to 'See attractions', attractions_path %><br>
+<%= link_to 'Log Out', signout_path %>
