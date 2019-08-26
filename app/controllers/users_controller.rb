@@ -19,6 +19,7 @@ class UsersController < ApplicationController
   def show
     if User.find_by(id: params[:id]) && session[:user_id]
       @user = User.find_by(id: params[:id])
+      @message = :message
       render :show
     else
       redirect_to "/"

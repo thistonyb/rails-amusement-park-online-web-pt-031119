@@ -1,7 +1,9 @@
 <% if @user.admin %>
     <h3>ADMIN</h3>
 <% end %>
-
+<% if @message %>
+  <p><%= @message %></p>
+<% end %>
   <h3><%= @user.name %></h3>
   <% if !@user.admin %>
   <h3>Tickets: <%= @user.tickets %></h3>

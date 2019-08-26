@@ -1,7 +1,9 @@
 Rails.application.routes.draw do
 
     root 'application#home'
-    resources :users
+    resources :users do
+      resources :rides
+    end
     resources :attractions
     resources :rides, only: [:create]
 
